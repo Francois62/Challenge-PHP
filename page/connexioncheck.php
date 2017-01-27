@@ -27,4 +27,5 @@ $data = mysqli_fetch_assoc($res); //$data est un booléen
        $_SESSION['log']=false;
     }
 header('location:../index.php');
+
  ?>

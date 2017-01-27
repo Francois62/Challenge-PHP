@@ -1,5 +1,14 @@
 <?php
-include_once("connexion.php"); ?>
+session_start();
+include_once("connexion.php");
+include_once("customnav.php");
+echo "<meta charset='utf-8'/>";
+$res = mysqli_query($cnx,"SELECT * FROM users ");
+$data = mysqli_fetch_assoc($res);
+$res1 = mysqli_query($cnx,"SELECT * FROM custom WHERE id=1");
+$data1 = mysqli_fetch_assoc($res1);
+
+ ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,40 +43,39 @@ include_once("connexion.php"); ?>
 
 <body>
 
+<style>
+  @import url('https://fonts.googleapis.com/css?family=<?php echo $data1['font']?>');
+.navbar{
+
+ /*padding-left: 10%;*/
+  width:100%;
+  background-color:<?php echo $data1['navbar'] ?>;
+
+}
+.nav{
+   padding-left: 20%;
+    width:100%;
+
+  background-color:<?php echo $data1['navbar'] ?>;
+}
+.collapse{
+float: right;
+}
+.btn{
+background-color:<?php echo $data1['bouton'] ?>;
+}
+h1,h2,h3,h4{
+        font-family: <?php echo $data1['font']?>;
+  color:<?php echo $data1['titre'] ?>;
+}
+a{
+  color:<?php echo $data1['url'] ?> !important;
+}
+</style>
+
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Left -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.php">Start Bootstrap</a>
-            </div>
-            <!-- Right -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="../index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="repertory.php">Repertory</a>
-                    </li>
-                    <li>
-                        <a href="about.php">About</a>
-                    </li>
-                    <li>
-                        <a href="contact.php">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+    <!-- <nav class="navbar navbar-inverse <?php echo $data1['navfix'] ?>" role="navigation"> -->
+
 
     <!-- Page Content -->
     <div class="container">
@@ -141,7 +149,7 @@ include_once("connexion.php"); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
+    <?php include('snow.php'); ?>
 </body>
 
 </html>

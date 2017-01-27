@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+session_start();
+include_once('connexion.php');
+include_once("customnav.php");
+echo "<meta charset='utf-8'/>";
+$res = mysqli_query($cnx,"SELECT * FROM users WHERE valider=1");
+$res1 = mysqli_query($cnx,"SELECT * FROM custom WHERE id=1");
+$data = mysqli_fetch_assoc($res);
+$data1 = mysqli_fetch_assoc($res1);
+// $add = isset($_POST['add'])? $_POST['add'] : "";
+// $add=$data['id'];
+
+?><!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -30,41 +42,34 @@
 </head>
 
 <body>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=<?php echo $data1['font']?>');
+.navbar{
 
+ /*padding-left: 10%;*/
+  width:100%;
+  background-color:<?php echo $data1['navbar'] ?>;
+}
+.nav{
+   padding-left: 20%;
+    width:100%;
+  background-color:<?php echo $data1['navbar'] ?>;
+}
+.collapse{
+float: right;
+}
+.btn{
+background-color:<?php echo $data1['bouton'] ?>;
+}
+h1,h2,h3,h4{
+      font-family: <?php echo $data1['font']?>;
+  color:<?php echo $data1['titre'] ?>;
+}
+a{
+  color:<?php echo $data1['url'] ?> !important;
+}
+</style>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Left -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-            </div>
-            <!-- Right -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="../index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="page/repertory.html">Repertory</a>
-                    </li>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
 
 
     <!-- Page Content -->
@@ -75,7 +80,7 @@
             <div class="col-lg-12">
                 <h1 class="page-header">Repertory</h1>
                 <ol class="breadcrumb">
-                    <li><a href="../index.html">Home</a>
+                    <li><a href="../index.php">Home</a>
                     </li>
                     <li class="active">Portfolio</li>
                 </ol>
@@ -84,7 +89,81 @@
         <!-- /.row -->
 
         <!-- Friends Row -->
-        <div class="row">
+        <?php
+        // if($data['id']){
+        mysqli_data_seek($res, 0);
+      // }
+        while(($data = mysqli_fetch_assoc($res))){
+        echo '<div class="row">';
+            echo '<div class="col-md-4 img-portfolio">';
+                echo '<img class="img-responsive img-hover" src="../img/'.$data['img'].'" alt="">';
+              echo '  <h3>"'.$data['pseudo'].'"</h3>';
+                echo '<p><span>"'.$data['age'].'"</span></p>';
+
+              echo '  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>';
+              echo '  <h4>"'.$data['jeux'].'"</h4>';
+              echo '  <table class="table table-striped  table-hover">';
+                echo '    <thead>';
+                    echo '    <tr>';
+                      echo '      <th>"'.$data['jeux'].'"</td>';
+                        echo '    <th>"'.$data['username'].'"</td>';
+                      echo '  </tr>';
+                  echo '  </thead>';
+                  echo '  <tr>';
+                    echo '    <td>Lorem</td>';
+                    echo '    <td>Ipsum</td>';
+                  echo '  </tr>';
+                echo '</table>';
+            echo '</div>';
+          }
+
+?>
+            <!-- <div class="col-md-4 img-portfolio">
+                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
+                <h3>Username</h3>
+                <p>22 ans <span>(19/12/1994)</span></p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <h4>Games</h4>
+                <table class="table table-striped  table-hover">
+                    <thead>
+                        <tr>
+                            <th>Game</td>
+                            <th>Username</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Lorem</td>
+                        <td>Ipsum</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col-md-4 img-portfolio">
+                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
+                <h3>Username</h3>
+                <p>22 ans <span>(19/12/1994)</span></p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <h4>Games</h4>
+                <table class="table table-striped  table-hover">
+                    <thead>
+                        <tr>
+                            <th>Game</td>
+                            <th>Username</td>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td>Lorem</td>
+                        <td>Ipsum</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Friends Row -->
+        <!-- <div class="row">
             <div class="col-md-4 img-portfolio">
                 <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
                 <h3>Username</h3>
@@ -151,7 +230,7 @@
         <!-- /.row -->
 
         <!-- Friends Row -->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-4 img-portfolio">
                 <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
                 <h3>Username</h3>
@@ -214,74 +293,7 @@
                     </tr>
                 </table>
             </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Friends Row -->
-        <div class="row">
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        </div> -->
         <!-- /.row -->
 
         <hr>
@@ -300,6 +312,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
      <script src="../js/bootstrap.min.js"></script>
+<?php include('snow.php'); ?>
 
 
 </body>

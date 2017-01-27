@@ -1,6 +1,15 @@
 <?php
+session_start();
 include_once("connexion.php");
- ?><!DOCTYPE html>
+include_once("customnav.php");
+echo "<meta charset='utf-8'/>";
+$res = mysqli_query($cnx,"SELECT * FROM users ");
+$data = mysqli_fetch_assoc($res);
+$res1 = mysqli_query($cnx,"SELECT * FROM custom WHERE id=1");
+$data1 = mysqli_fetch_assoc($res1);
+
+ ?>
+ <!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -32,41 +41,39 @@ include_once("connexion.php");
 </head>
 
 <body>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=<?php echo $data1['font']?>');
+.navbar{
+
+ /*padding-left: 10%;*/
+  width:100%;
+  background-color:<?php echo $data1['navbar'] ?>;
+}
+.nav{
+   padding-left: 20%;
+    width:100%;
+  background-color:<?php echo $data1['navbar'] ?>;
+}
+.collapse{
+float: right;
+}
+.btn{
+background-color:<?php echo $data1['bouton'] ?>;
+}
+h1,h2,h3,h4{
+      font-family: <?php echo $data1['font']?>;
+  color:<?php echo $data1['titre'] ?>;
+}
+ul{
+  color:<?php echo $data1['url'] ?>;
+}
+a{
+  color:<?php echo $data1['url'] ?> !important;
+}
+</style>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Left -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
-            </div>
-            <!-- Right -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="../index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="repertory.php">Repertory</a>
-                    </li>
-                    <li>
-                        <a href="about.php">About</a>
-                    </li>
-                    <li>
-                        <a href="contact.php">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+
 
     <!-- Page Content -->
     <div class="container">
@@ -89,29 +96,53 @@ include_once("connexion.php");
             <!-- Form Column -->
             <div class="col-md-4">
                 <!-- Contact form -->
-                <form name="sentMessage" id="contactForm" novalidate>
+                <form enctype="multipart/form-data" action="admin.php" name="sentMessage" id="contactForm" novalidate method="POST">
+                  <div class="control-group form-group">
+                      <div class="controls">
+                          <label>Pseudo:</label>
+                          <input type="text" class="form-control" id="pseudo" name="pseudo"required data-validation-required-message="Please enter your pseudo.">
+                      </div>
+                  </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Full Name:</label>
-                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" id="username" name="username"required data-validation-required-message="Please enter your name.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Email Address:</label>
-                            <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                            <input type="email" class="form-control" id="email" name="mail"required data-validation-required-message="Please enter your email address.">
                         </div>
                     </div>
 
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Message:</label>
-                            <textarea rows="4" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                            <textarea rows="4" cols="100" class="form-control" id="message" name="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
                         </div>
                     </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Image de profil:</label>
+                            <input type="file" class="form-control" id="img" name="img" required data-validation-required-message="Please enter your Profil Image.">
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Jeux:</label>
+                            <input type="text" class="form-control" id="game" name="game" required data-validation-required-message="Please enter your favorite game.">
+                            <p class="help-block"></p>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Date de Naissance:</label>
+                            <input type="text" class="form-control" id="age" name="age" required data-validation-required-message="Please enter your birthdate.">
+                            <p class="help-block"></p>
+                    </div>
                     <div id="success"></div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" id="add" name="add" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </div>
@@ -131,6 +162,14 @@ include_once("connexion.php");
     </div>
     <!-- /.container -->
 
+    <!-- /.container -->
+
+    <script>
+        $('.carousel').carousel({
+            interval: 5000
+        })
+    </script>
+    <?php include('snow.php'); ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
 
