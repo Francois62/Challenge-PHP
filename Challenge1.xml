@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.5.4.1deb2ubuntu2
+- https://www.phpmyadmin.net
+-
+- Client :  localhost
+- Généré le :  Lun 30 Janvier 2017 à 16:21
+- Version du serveur :  5.6.32-1+deb.sury.org~xenial+0.1
+- Version de PHP :  7.0.15-1+deb.sury.org~xenial+1
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="http://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="Challenge1" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="cat">
+                CREATE TABLE `cat` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `username` varchar(20) NOT NULL,
+                  `password` varchar(20) NOT NULL,
+                  `pseudo` varchar(30) NOT NULL,
+                  `date` date NOT NULL,
+                  `img` varchar(100) NOT NULL,
+                  `mail` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="custom">
+                CREATE TABLE `custom` (
+                  `id` int(1) NOT NULL AUTO_INCREMENT,
+                  `titre` varchar(30) NOT NULL,
+                  `changetitle` varchar(25) NOT NULL,
+                  `changetitle2` varchar(25) NOT NULL,
+                  `changetitle3` varchar(25) NOT NULL,
+                  `subtitle` varchar(100) NOT NULL,
+                  `subtitle2` varchar(100) NOT NULL,
+                  `subtitle3` varchar(100) NOT NULL,
+                  `navbar` varchar(30) NOT NULL,
+                  `url` varchar(30) NOT NULL,
+                  `bouton` varchar(30) NOT NULL,
+                  `font` varchar(30) NOT NULL,
+                  `snow` int(11) NOT NULL,
+                  `navfix` int(11) NOT NULL,
+                  `slider` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="historycolor">
+                CREATE TABLE `historycolor` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `titre` varchar(50) NOT NULL,
+                  `navbar` varchar(50) NOT NULL,
+                  `url` varchar(100) NOT NULL,
+                  `bouton` varchar(50) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+            </pma:table>
+            <pma:table name="users">
+                CREATE TABLE `users` (
+                  `id` int(1) NOT NULL AUTO_INCREMENT,
+                  `pseudo` varchar(30) NOT NULL,
+                  `username` varchar(50) NOT NULL,
+                  `age` varchar(30) NOT NULL,
+                  `img` varchar(100) NOT NULL,
+                  `mail` varchar(50) NOT NULL,
+                  `jeux` varchar(30) NOT NULL,
+                  `valider` int(11) NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Base de données :  'Challenge1'
+    -->
+    <database name="Challenge1">
+        <!-- Table cat -->
+        <table name="cat">
+            <column name="id">1</column>
+            <column name="username">admin</column>
+            <column name="password">admin</column>
+            <column name="pseudo"></column>
+            <column name="date">0000-00-00</column>
+            <column name="img"></column>
+            <column name="mail"></column>
+        </table>
+        <table name="cat">
+            <column name="id">2</column>
+            <column name="username">Amandine</column>
+            <column name="password">Papin</column>
+            <column name="pseudo"></column>
+            <column name="date">0000-00-00</column>
+            <column name="img"></column>
+            <column name="mail"></column>
+        </table>
+        <!-- Table custom -->
+        <table name="custom">
+            <column name="id">1</column>
+            <column name="titre">cyan</column>
+            <column name="changetitle">hey</column>
+            <column name="changetitle2">hi</column>
+            <column name="changetitle3">hello</column>
+            <column name="subtitle"></column>
+            <column name="subtitle2"></column>
+            <column name="subtitle3"></column>
+            <column name="navbar">skyblue</column>
+            <column name="url">navy</column>
+            <column name="bouton">orange</column>
+            <column name="font">Lemonada</column>
+            <column name="snow">1</column>
+            <column name="navfix">1</column>
+            <column name="slider">0</column>
+        </table>
+        <!-- Table historycolor -->
+        <table name="historycolor">
+            <column name="id">5</column>
+            <column name="titre">blue</column>
+            <column name="navbar">skyblue</column>
+            <column name="url">grey</column>
+            <column name="bouton">orange</column>
+        </table>
+        <table name="historycolor">
+            <column name="id">6</column>
+            <column name="titre">cyan</column>
+            <column name="navbar">skyblue</column>
+            <column name="url">navy</column>
+            <column name="bouton">orange</column>
+        </table>
+        <!-- Table users -->
+        <table name="users">
+            <column name="id">21</column>
+            <column name="pseudo">fgdvv</column>
+            <column name="username">fvfvff</column>
+            <column name="age">08/03/1990</column>
+            <column name="img">images.jpeg</column>
+            <column name="mail">fdsf@dfcsdf.fr</column>
+            <column name="jeux">gnbgfbngfs</column>
+            <column name="valider">1</column>
+        </table>
+        <table name="users">
+            <column name="id">22</column>
+            <column name="pseudo">gfdg</column>
+            <column name="username">fgfg</column>
+            <column name="age">08/03/1990</column>
+            <column name="img">images.jpeg</column>
+            <column name="mail">gfgdf</column>
+            <column name="jeux">vgfgd</column>
+            <column name="valider">1</column>
+        </table>
+        <table name="users">
+            <column name="id">25</column>
+            <column name="pseudo">fszffs</column>
+            <column name="username">dsfdsfsdf</column>
+            <column name="age">08/03/1990</column>
+            <column name="img">giphy.gif</column>
+            <column name="mail">whiskey62200@gmail.com</column>
+            <column name="jeux">fsfsdf</column>
+            <column name="valider">0</column>
+        </table>
+    </database>
+</pma_xml_export>

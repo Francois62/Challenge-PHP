@@ -83,8 +83,8 @@ include_once("connexion.php");
   <div class=" text-center col-xs-12 col-md-12 col-lg-12">
   <h4 class="text-center">Espace connexion<h4>
     <form action="connexioncheck.php" method="POST">
-      <input type="text" id="username" name="username" value="username"/><br>
-      <input type="text" id="password" name="password" value="password"/><br>
+      <input type="text" id="username" name="username" placeholder="username"value=""/><br>
+      <input type="text" id="password" name="password" placeholder="password" value=""/><br>
      <input type="submit" id="submit" name="submit" value="Envoyer"/>
 </form>
 </div>

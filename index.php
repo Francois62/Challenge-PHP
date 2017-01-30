@@ -220,16 +220,16 @@ else{
             <div class="item active">
                 <div class="fill" style="background-image:url('img/slide1.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2><?php if($data1['changetitle']== 1){
+                    <h2><?php if($data1['changetitle']){
                       echo $data1['changetitle']; }?></h2>
-                    <p><?php if($data1['subtitle']== 1){
+                    <p><?php if($data1['subtitle']){
                       echo $data1['subtitle']; }?></p>
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('img/slide2.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2><?php if($data1['changetitle2']== 1){
+                    <h2><?php if($data1['changetitle2']){
                       echo $data1['changetitle2']; }?></h2>
                     <p><?php if($data1['subtitle2']== 1){
                       echo $data1['subtitle2']; }?></p>
@@ -238,9 +238,9 @@ else{
             <div class="item">
                 <div class="fill" style="background-image:url('img/slide3.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2><?php if($data1['changetitle3']== 1){
+                    <h2><?php if($data1['changetitle3']){
                       echo $data1['changetitle3']; }?></h2>
-                    <p><?php if($data1['subtitle3']== 1){
+                    <p><?php if($data1['subtitle3']){
                       echo $data1['subtitle3']; }?></p>
                 </div>
             </div>
@@ -356,11 +356,14 @@ else{
         <!-- Call to Action Section -->
         <div class="well">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
                 </div>
                 <div class="col-md-4">
                     <a class="btn btn-lg btn-default btn-block" href="#">Call to Action</a>
+                </div>
+                <div class="col-md-2">
+                  <a href="#" class="js-scrollTo"><i class="fa fa-arrow-circle-o-up fa-3x js-scrollTo" type="submit" class="btn btn-default js-scrollTo" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>

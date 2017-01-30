@@ -30,7 +30,7 @@ $data1 = mysqli_fetch_assoc($res1);
     <link href="../css/main.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -68,6 +68,9 @@ h1,h2,h3,h4{
 }
 a{
   color:<?php echo $data1['url'] ?> !important;
+}
+.goto{
+  margin-left: 50%;
 }
 </style>
     <!-- Navigation -->
@@ -119,190 +122,17 @@ a{
           }
 
 ?>
-            <!-- <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Friends Row -->
-        <!-- <div class="row">
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <!-- Friends Row -->
-        <!-- <div class="row">
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="col-md-4 img-portfolio">
-                <img class="img-responsive img-hover" src="../img/portfolio1.jpg" alt="">
-                <h3>Username</h3>
-                <p>22 ans <span>(19/12/1994)</span></p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-                <h4>Games</h4>
-                <table class="table table-striped  table-hover">
-                    <thead>
-                        <tr>
-                            <th>Game</td>
-                            <th>Username</td>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>Lorem</td>
-                        <td>Ipsum</td>
-                    </tr>
-                </table>
-            </div>
-        </div> -->
-        <!-- /.row -->
-
+<div class="row">
+<div class="goto col-md-2 col-xs-2 col-lg-2">
+  <a href="#" class="js-scrollTo"><i class="fa fa-arrow-circle-o-up fa-3x js-scrollTo" type="submit" class="btn btn-default js-scrollTo" aria-hidden="true"></i></a>
+</div>
+</div>
         <hr>
 
         <!-- Footer -->
         <footer>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12 col-xs-12 col-lg-12">
                     <p>Copyright &copy; SimplonBSM 2017</p>
                 </div>
             </div>

@@ -29,7 +29,7 @@ $data1 = mysqli_fetch_assoc($res1);
     <link href="../css/main.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -70,6 +70,9 @@ ul{
 }
 a{
   color:<?php echo $data1['url'] ?> !important;
+}
+.goto{
+  margin-left: 50%;
 }
 </style>
 
@@ -145,6 +148,11 @@ a{
                     <div id="success"></div>
                     <button type="submit" id="add" name="add" class="btn btn-primary">Send Message</button>
                 </form>
+                <div class="row">
+                <div class="goto col-md-2 col-xs-2 col-lg-2">
+                  <a href="#" class="js-scrollTo"><i class="fa fa-arrow-circle-o-up fa-3x js-scrollTo" type="submit" class="btn btn-default js-scrollTo" aria-hidden="true"></i></a>
+                </div>
+                </div>
             </div>
         </div>
         <!-- /.row -->

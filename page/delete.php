@@ -20,6 +20,32 @@ if($validelete==0){
    header('location:admin.php');
 }
 else{
-  $res = mysqli_query($cnx,"DELETE FROM users WHERE id='$numid' ");
+  echo '<form action="delete.php" method="POST">
+  <label for="captcha">Recopiez le mot : "internet"</label>
+			<input type="text" name="captcha" id="captcha" /><br />
+      </form>';
 }
+function motListe()
+{
+    $liste = array('internet', 'captcha', 'robot');
+    return $liste[array_rand($liste)];
+}
+
+function captcha()
+{
+    return motListe();
+}
+
+
+    if($_POST['captcha'] == $_SESSION['captcha']){
+
+        echo 'Le captcha est bon';
+          $res = mysqli_query($cnx,"DELETE FROM users WHERE id='$numid' ");
+}
+    else {
+
+        echo 'Le captcha n\'est pas bon';
+
+}
+
   ?>

@@ -52,7 +52,7 @@ else{
 
  echo "<div class='row'>";
  echo "<div class='text-center col-xs-12 col-md-12 col-lg-12'>";
-echo "<table>";
+echo "<table class='text-center'>";
 foreach ($data as $key => $value) {
     echo "<th class='text-center'>".$key."</th>";
     //echo "<tr></tr>";
@@ -92,6 +92,7 @@ mysqli_data_seek($res, 0);
     else{
       $res=0;
     }  // echo "INSERT =" .(int)$res;
+
 
 
  ?>
@@ -136,8 +137,10 @@ mysqli_data_seek($res, 0);
      background-color:<?php echo $data1['navbar'] ?>;
 
    }
+
    table{
-     margin-left:25%;
+     width: 60%;
+     margin-left: 20%;
      border: solid black 1px;
    }
    td{
@@ -157,11 +160,20 @@ mysqli_data_seek($res, 0);
 
      background-color:<?php echo $data1['navbarr'] ?>;
    }
+   .history{
+     margin-bottom: 3%;
+     margin-top: 3%;
+   }
    .collapse{
    float: right;
    }
    .btn{
    background-color:<?php echo $data1['bouton'] ?>;
+   }
+   .goto{
+     position: fixed;
+     bottom: 20%;
+     right: 4%;
    }
    h1,h2,h3,h4{
          font-family: <?php echo $data1['font']?>;
@@ -174,10 +186,50 @@ mysqli_data_seek($res, 0);
      width:100px;
      height:100px;
    }
+   .look{
+     style: none;
+     font-size: 20px;
+   }
+   .box{
+     margin-left:3%;
+     padding-bottom: 3%;
+   }
    </style>
-   <div class='col-md-12 col-xs-12 col-lg-12 text-center'>
-   <a href="http://localhost/challenge1/">Aperçu</a><div class="box"><iframe src="http://localhost/challenge1/" width = "500px" height = "500px"></iframe></div>
+   <div class='row col-md-12 col-xs-12 col-lg-12 text-center'>
+   <a class="look" href="http://localhost/challenge1/">Aperçu</a><div class="box"><iframe src="http://localhost/challenge1/" width = "100%" height = "700px"></iframe></div>
  </div>
+ <?php
+     echo "<div class='row'>";
+     echo "<div class=' text-center col-xs-12 col-md-12 col-lg-12'>";
+    echo "<table class=' history text-center'>";
+    foreach ($data1 as $key => $value) {
+        echo "<th class='text-center'>".$key."</th>";
+        //echo "<tr></tr>";
+      }
+    mysqli_data_seek($res1, 0);
+        while ($data1 = mysqli_fetch_assoc($res1)){
+          echo "<tr>";
+          foreach ($data1 as $key => $value) {
+            if($key=='img'){
+             echo '<td><img src="../img/'.$value.'"></td>';
+            }
+            else{
+              echo "<td>".$value."</td>";
+            }
+          }
+        }
+        echo "</tr>";
+        echo "</div>";
+        echo "</div>";
+        echo '<div class=" goto row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+               <a href="#" class="js-scrollTo"><i class="fa fa-arrow-circle-o-up fa-3x js-scrollTo" type="submit" class="btn btn-default js-scrollTo" aria-hidden="true"></i></a>
+        </div>
+        </div>';
+?>
  <?php include('snow.php'); ?>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="../js/bootstrap.min.js"></script>
    </body>
    </html>

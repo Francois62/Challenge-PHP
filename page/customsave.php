@@ -4,7 +4,7 @@ include_once("connexion.php");
 $res=mysqli_query($cnx ,"SELECT * FROM custom  WHERE id=1 ");
 $data=mysqli_fetch_assoc($res);
 
-$res1 = mysqli_query($cnx,"SELECT * FROM custom WHERE id=1");
+$res1 = mysqli_query($cnx,"SELECT * FROM historycolor WHERE id=1");
 $data1 = mysqli_fetch_assoc($res1);
 
 
@@ -89,26 +89,33 @@ $res = mysqli_query($cnx,"UPDATE custom SET changetitle3='$changetitle3' WHERE i
   // $data = mysqli_fetch_assoc($res);
   $res = mysqli_query($cnx,"UPDATE custom SET titre='$newtitle' WHERE id=1 ");
 }
-if($newnav!="")
+if($newnav!="" && $newurl!="" && $newbouton!="" && $newtitle!="")
 {
 // $data = mysqli_fetch_assoc($res);
 $res = mysqli_query($cnx,"UPDATE custom SET navbar='$newnav' WHERE id=1 ");
-}
-if($newurl!="")
-{
-// $data = mysqli_fetch_assoc($res);
+$res1 = mysqli_query($cnx,"INSERT INTO historycolor (navbar,url,bouton,titre) VALUES ('$newnav','$newurl','$newbouton','$newtitle')  ");
 $res = mysqli_query($cnx,"UPDATE custom SET url='$newurl' WHERE id=1 ");
-}
-if($newbouton!="")
-{
-// $data = mysqli_fetch_assoc($res);
 $res = mysqli_query($cnx,"UPDATE custom SET bouton='$newbouton' WHERE id=1 ");
-}
-if($newtitle!="")
-{
-// $data = mysqli_fetch_assoc($res);
 $res = mysqli_query($cnx,"UPDATE custom SET titre='$newtitle' WHERE id=1 ");
 }
+// if($newurl!="")
+// {
+// // $data = mysqli_fetch_assoc($res);
+// $res = mysqli_query($cnx,"UPDATE custom SET url='$newurl' WHERE id=1 ");
+// $res1 = mysqli_query($cnx,"INSERT INTO historycolor (url) VALUES ('$newurl') ");
+// }
+// if($newbouton!="")
+// {
+// // $data = mysqli_fetch_assoc($res);
+// $res = mysqli_query($cnx,"UPDATE custom SET bouton='$newbouton' WHERE id=1 ");
+// $res1 = mysqli_query($cnx,"INSERT INTO historycolor (bouton) VALUES ('$newbouton') ");
+// }
+// if($newtitle!="")
+// {
+// // $data = mysqli_fetch_assoc($res);
+// $res = mysqli_query($cnx,"UPDATE custom SET titre='$newtitle' WHERE id=1 ");
+// $res1 = mysqli_query($cnx,"INSERT INTO historycolor (titre) VALUES ('$newtitle')");
+// }
 if($newpolice!="")
 {
 // $data = mysqli_fetch_assoc($res);
