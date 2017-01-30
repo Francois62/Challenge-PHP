@@ -36,7 +36,8 @@ else{
                   <a href="contact.php">Contact</a>
               </li>
               <?php
-                //$_SESSION['log'] = isset($_GET['log'])? $_GET['log'] : "";
+                $_SESSION['log'] = isset($_GET['log'])? $_GET['log'] : "";
+                 $_SESSION['log']==false;
               if ($_SESSION['log']===true){
               echo '<li>';
                   echo '<a href="admin.php">Admin</a>';

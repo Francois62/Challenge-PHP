@@ -14,6 +14,18 @@ echo "<div class='row'>
 <label for='nav'>nav:</label>
 <input name='navbarr' type='text' /><br>
 
+<label for='title'>title</label>
+<input name='changetitle' type='text' /><br>
+
+<label for='title'>title2</label>
+<input name='changetitle2' type='text' /><br>
+
+<label for='title'>title3</label>
+<input name='changetitle3' type='text' /><br>
+
+<label for='subtitle'>subtitle</label>
+<input name='changesubtitle' type='text' /><br>
+
 <label for='url'>couleur url:</label>
 <input name='url' type='text' /><br>
 

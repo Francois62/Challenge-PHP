@@ -14,6 +14,9 @@ $newname=isset($_POST['username'])? $_POST['username'] : "";
 $newmail= isset($_POST['mail'])? $_POST['mail'] : "";
 $newgame= isset($_POST['game'])? $_POST['game'] : "";
 $newdate= isset($_POST['age'])? $_POST['age'] : "";
+$message= isset($_POST['message'])? $_POST['message'] : "";
+$message = wordwrap($message, 100, "\r\n");
+mail($newmail, 'Message', $message);
 
 $verifpseudo="#[^0-9]#";
 $verifprenom="#[A-Za-z]#";
@@ -47,8 +50,8 @@ else{
 
 
 
-// echo "<div class='row'>";
-// echo "<div class='text-center co$valideletel-xs-12 col-md-12 col-lg-12'>";
+ echo "<div class='row'>";
+ echo "<div class='text-center col-xs-12 col-md-12 col-lg-12'>";
 echo "<table>";
 foreach ($data as $key => $value) {
     echo "<th class='text-center'>".$key."</th>";
@@ -77,8 +80,8 @@ mysqli_data_seek($res, 0);
         echo '</form>';
         echo "</tr>";
 
-        // echo "</div>";
-        // echo "</div>";
+         echo "</div>";
+         echo "</div>";
       }
 
       $valider=0;
@@ -127,29 +130,29 @@ mysqli_data_seek($res, 0);
    <style>
     @import url('https://fonts.googleapis.com/css?family=<?php echo $data1['font']?>');
    .navbar{
-    /*padding-left: 10%;*/
-     z-index:1;
+    padding-right: 10%;
+   display: inline-flex;
      width:100%;
      background-color:<?php echo $data1['navbar'] ?>;
 
    }
    table{
-     margin-left:35%;
+     margin-left:25%;
      border: solid black 1px;
    }
    td{
-     border: solid black 1px;
+     border: solid grey 1px;
    }
    th{
-     border:solid black 1px;
+     border:solid grey 1px;
      background-color: green;
    }
    tr{
-     border: solid black 1px;
+     border: solid grey 1px;
    }
    .nav{
-      padding-left: 20%;
-     z-index:1;
+      padding-left: 10%;
+ display: inline-flex;
        width:100%;
 
      background-color:<?php echo $data1['navbarr'] ?>;
@@ -172,7 +175,9 @@ mysqli_data_seek($res, 0);
      height:100px;
    }
    </style>
-
-    <?php include('snow.php'); ?>
+   <div class='col-md-12 col-xs-12 col-lg-12 text-center'>
+   <a href="http://localhost/challenge1/">Aperçu</a><div class="box"><iframe src="http://localhost/challenge1/" width = "500px" height = "500px"></iframe></div>
+ </div>
+ <?php include('snow.php'); ?>
    </body>
    </html>

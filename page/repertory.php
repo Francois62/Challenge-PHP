@@ -51,6 +51,7 @@ $data1 = mysqli_fetch_assoc($res1);
   background-color:<?php echo $data1['navbar'] ?>;
 }
 .nav{
+  display: inline-flex;
    padding-left: 20%;
     width:100%;
   background-color:<?php echo $data1['navbar'] ?>;

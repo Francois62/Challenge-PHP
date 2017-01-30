@@ -1,8 +1,10 @@
 <?php
-session_start();
+ session_start();
 include_once("page/connexion.php");
 $res1 = mysqli_query($cnx,"SELECT * FROM custom WHERE id=1");
 $data1 = mysqli_fetch_assoc($res1);
+$res = mysqli_query($cnx,"SELECT * FROM users WHERE valider=1 ORDER BY id DESC LIMIT 6 ");
+$data = mysqli_fetch_assoc($res);
 // echo "<meta charset='utf-8'/>";
 // $res = mysqli_query($cnx,"SELECT * FROM users ");
 // $data = mysqli_fetch_assoc($res);
@@ -118,7 +120,7 @@ $res = mysqli_query($cnx,"UPDATE custom SET font='$newpolice' WHERE id=1 ");
 }
 .nav{
    padding-left: 20%;
-
+display: inline-flex;
     width:100%;
   background-color:<?php echo $data1['navbar'] ?>;
 }
@@ -178,7 +180,8 @@ else{
                 <a href="page/contact.php">Contact</a>
             </li>
             <?php
-              //$_SESSION['log'] = isset($_GET['log'])? $_GET['log'] : "";
+              $_SESSION['log']==false;
+
             if ($_SESSION['log']===true){
             echo '<li>';
                 echo '<a href="page/admin.php">Admin</a>';
@@ -217,22 +220,28 @@ else{
             <div class="item active">
                 <div class="fill" style="background-image:url('img/slide1.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Title 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    <h2><?php if($data1['changetitle']== 1){
+                      echo $data1['changetitle']; }?></h2>
+                    <p><?php if($data1['subtitle']== 1){
+                      echo $data1['subtitle']; }?></p>
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('img/slide2.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Title 2</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    <h2><?php if($data1['changetitle2']== 1){
+                      echo $data1['changetitle2']; }?></h2>
+                    <p><?php if($data1['subtitle2']== 1){
+                      echo $data1['subtitle2']; }?></p>
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('img/slide3.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>title 3</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+                    <h2><?php if($data1['changetitle3']== 1){
+                      echo $data1['changetitle3']; }?></h2>
+                    <p><?php if($data1['subtitle3']== 1){
+                      echo $data1['subtitle3']; }?></p>
                 </div>
             </div>
         </div>
@@ -260,6 +269,7 @@ else{
                     Welcome !
                 </h1>
             </div>
+
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -282,6 +292,7 @@ else{
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -301,17 +312,27 @@ else{
             <div class="col-lg-12">
                 <h2 class="page-header">Last creation</h2>
             </div>
-            <div class="portfolio-item col-md-4 col-sm-6">
+            <?php   mysqli_data_seek($res, 0);
+            // }
+              while(($data = mysqli_fetch_assoc($res))){
+          echo'  <div class="portfolio-item col-md-4 col-sm-6">
+                <a  href="page/repertory.php">
+                    <img class="img-responsive img-portfolio img-hover" src="img/'.$data['img'].'" alt="">
+                </a>
+            </div>';
+          }
+            ?>
+            <!-- <div class="portfolio-item col-md-4 col-sm-6">
                 <a  href="page/repertory.php">
                     <img class="img-responsive img-portfolio img-hover" src="img/portfolio1.jpg" alt="">
                 </a>
             </div>
-            <div class="portfolio-item col-md-4 col-sm-6">
-                <a  href="page/repertory.php">
+            <! <div class="portfolio-item col-md-4 col-sm-6">
+                <a href="page/repertory.php">
                     <img class="img-responsive img-portfolio img-hover" src="img/portfolio1.jpg" alt="">
                 </a>
-            </div>
-            <div class="portfolio-item col-md-4 col-sm-6">
+            </div> -->
+            <!-- <div class="portfolio-item col-md-4 col-sm-6">
                 <a href="page/repertory.php">
                     <img class="img-responsive img-portfolio img-hover" src="img/portfolio1.jpg" alt="">
                 </a>
@@ -325,12 +346,7 @@ else{
                 <a href="page/repertory.php">
                     <img class="img-responsive img-portfolio img-hover" src="img/portfolio1.jpg" alt="">
                 </a>
-            </div>
-            <div class="portfolio-item col-md-4 col-sm-6">
-                <a href="page/repertory.php">
-                    <img class="img-responsive img-portfolio img-hover" src="img/portfolio1.jpg" alt="">
-                </a>
-            </div>
+            </div> -->
         </div>
         <!-- /.row -->
 

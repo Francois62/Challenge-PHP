@@ -53,6 +53,7 @@ $data1 = mysqli_fetch_assoc($res1);
 
 }
 .nav{
+  display: inline-flex;
    padding-left: 20%;
     width:100%;
 
